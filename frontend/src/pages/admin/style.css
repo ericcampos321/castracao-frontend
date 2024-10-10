@@ -1,0 +1,69 @@
+.container-admin {
+  position: absolute;
+  top: 95px;
+  right: 0;
+  width: 84%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+.title-admin {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-title-link {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding-bottom: 20px;
+  width: 96%;
+  background-color: white;
+}
+
+.box-title-link ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.box-title-link ul .link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.box-title-link ul li {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  height: 38px;
+  border-radius: 4px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.box-title-link ul li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.box-title-link ul li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.box-title-link .box-title-menu {
+  height: 45px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--default-primary-color);
+  color: white;
+}

@@ -9,11 +9,12 @@ div .app-bar {
   justify-content: space-between;
   align-items: center;
   height: 20px;
+  background: #c5c5c50e;
 }
 
 .nav-bar .box-logo {
-  width: 130px;
-  height: 30px;
+  width: 140px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,26 +26,27 @@ div .app-bar {
   position: absolute;
   width: 40%;
   height: 100%;
-  object-fit: cover;
+  background-size: contain;
 }
 
 .submenu {
-  width: 260px;
+  background-color: var(--default-primary-color);
+  width: 250px;
   top: 64px;
   height: 100%;
   position: fixed;
-  background-color: var(--default-primary-color);
-  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.253);
   display: flex;
   justify-content: center;
 }
 
 .submenu ul {
-  width: 220px;
+  width: 200px;
   display: flex;
   justify-content: flex-start;
-  padding-top: 2px;
-  padding-left: 1px;
+  margin-left: 0px;
+  padding-top: 4px;
+  padding-left: 0;
   flex-direction: column;
   height: 800px;
   position: relative;
@@ -52,28 +54,43 @@ div .app-bar {
 }
 
 .submenu ul li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgb(92, 92, 92);
-  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white-color);
+  justify-content: left;
   text-align: center;
   display: flex;
-  padding: 20px 5px 5px 5px;
-  width: 100%;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 10px 5px 5px 5px;;
+  width: 16vh;
+  font-size: 17px;
+  font-weight: 400;
   list-style: none;
+  text-decoration: none;
+}
+
+.icon-menu {
+  margin-right: 30px;
+  font-size: 24px;
+}
+
+.submenu nav ul a {
+  text-decoration: none;
+
 }
 
 .submenu ul li:hover {
   cursor: pointer;
+  background-color: #d6d6d634;
+  transition: all 0.1s ease;
+  border-radius: 2px;
 }
 
 .submenu ul li:active {
-  color: #666;
+  color: #ffffff;
   box-shadow:
     0px 0px 0px #c5c5c5,
     0px 0px 0px #ffffff,
     inset 4px 4px 12px #c5c5c5,
     inset -4px -4px 12px #ffffff;
-    border-radius: 10px;
+  border-radius: 10px;
 }
+

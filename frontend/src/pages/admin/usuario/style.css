@@ -1,0 +1,50 @@
+.user-box {
+  position: absolute;
+  top: 89px;
+  right: 0;
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 30px;
+  overflow-x: hidden;
+}
+
+.box-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.box-link .link {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.box-link .link:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.user-box .box-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 85px;
+  gap: 12px;
+}
+
+.user-box .box-add {
+  width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-box .box-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
