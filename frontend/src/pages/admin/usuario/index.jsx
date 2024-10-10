@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Header from "../../../components/headerComponent"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import UserFormComponent from '../../../components/userFormComponent';
-import { Typography, Button } from "@mui/material"
+import { Typography, Button, Box } from "@mui/material"
 import { Link } from "react-router-dom"
+import UserFormComponent from '../../../components/registerFormComponent/userFormComponent/index';
 import './style.css'
-
 
 
 
@@ -13,6 +12,7 @@ const Usuarios = () => {
 
   const [showAdd, setShowAdd] = useState(false);
   const [operation, setOperation] = useState('');
+  
   /*useEffect(() => {
   
   
@@ -23,8 +23,13 @@ const Usuarios = () => {
     setOperation('register');  
   }
 
+  const closeModal = () => {
+    setShowAdd(false);
+}
+
   return (
-    <div>
+    <Box>
+      <div>
       <Header />
       <div className='user-box'>
         <div className="box-link">
@@ -36,11 +41,13 @@ const Usuarios = () => {
           <Typography className='title' component='span' fontSize={25} >Registros de Usuários</Typography>
           <Typography className='title' component='span' fontSize={15} >Aqui você pode <Typography component='span' color='#751b1b'>consultar</Typography> e <Typography component='span' color='#751b1b'>adicionar</Typography> registro de usuários</Typography>
         </div>
-        <div className="box-add1">
-          <Button onCLick={()=> openAdd()}>Adicionar novo registro</Button>
+        <div className="box-add">
+          <Button onClick={()=> openAdd()}>Adicionar novo registro</Button>
         </div>
+        {showAdd ? <UserFormComponent operation={'register'} onClose={closeModal} /> : null }
       </div>
     </div>
+    </Box>
   )
 }
 
