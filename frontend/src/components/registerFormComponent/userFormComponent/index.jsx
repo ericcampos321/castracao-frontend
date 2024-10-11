@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, } from 'react';
 import './style.css';
 import api from '../../../api/index'
-import { Button} from '@mui/material';
-import TextField from '@mui/material/TextField';
+import { Button, FormControl, InputLabel, Select, TextField } from '@mui/material';
+
 import { Typography } from '@mui/material';
 
 
 
 const UserFormComponent = (props) => {
 
-  const [name, setName] = useState(props.name || '');
-  const [email, setEmail] = useState(props.email || '');
-  const [password, setPassword] = useState(props.password || '');
-  const [permissions, setPermissions] = useState(props.permissions || '');
-  const [name_permission, setName_permission] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [permissions, setPermissions] = useState([]);
+  const [name_permission, setNamePermission] = useState('');
   const [statusPromise, setStatusPromise] = useState(true);
+  
 
   useEffect(() => {
     if (props.name) setName(props.name);
@@ -30,7 +31,7 @@ const UserFormComponent = (props) => {
       let result;
 
       if (operation === 'register') {
-        result = await api.post('/userInsert', {
+        result = await api.post('/users/register', {
           name: name,
           email: email,
           password: password,
@@ -38,18 +39,30 @@ const UserFormComponent = (props) => {
         });
       }
 
+      
+
       if (operation === 'update') {
-        result = await api.put(`/userUpdate/${props.id}`, {
+        result = await api.put(`/update/${props.id}`, {
           name: name,
           email: email,
           password: password,
           permissions: name_permission
         });
       }
+
+
     } catch (err) {
       console.log(err);
     }
   };
+
+  const changePermissionUser = async (e) => {
+    try {
+        setNamePermission(e);
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
   return (
@@ -77,7 +90,20 @@ const UserFormComponent = (props) => {
                     <TextField value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" type="password" size='small' required={props.operation === 'update' ? false : true} disabled={props.operation === 'view' ? true : false} />
                 </div>
                 <div className="field-input">
-        
+                <FormControl>
+                        <InputLabel required >Permissão</InputLabel>
+                        <Select
+                            value={name_permission}
+                            label="Permissão"
+                            onChange={(e) => { changePermissionUser(e.target.value) }}
+                            style={{ width: '250px' }}
+                            size='small'
+                            defaultValue=''
+                            required
+                            disabled={props.operation === 'view' ? true : false}
+                        >
+                        </Select>
+                    </FormControl>
                 </div>
                 {props.operation === 'register' || props.operation === 'update' ? (
                     <div className="button-fields-user">

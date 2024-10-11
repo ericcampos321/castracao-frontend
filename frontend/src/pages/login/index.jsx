@@ -3,12 +3,23 @@ import img from "../../assets/images/logo.jpeg";
 
 import "./style.css";
 
+import api from "../../api/index"
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const login = async (e) => {
+    e.preventDefault();
+    const response = await api.post('/users/login', {
+        email, password
+    });
 
-
+    if (response.status === 200) {
+      localStorage.setItem('token', response.data.token);
+      window.location.href = '/home';
+    }
+  };
 
   return (
     <div className="background-login">
@@ -16,7 +27,7 @@ const Login = () => {
         <div className="box-image">
           <img src={img} alt="logo" />
         </div>
-        <form action="">
+        <form onSubmit= {(e) => login(e)}>
           <div class="input-field">
             <input
               required

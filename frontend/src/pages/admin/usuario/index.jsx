@@ -44,7 +44,7 @@ const Usuarios = () => {
         <div className="box-add">
           <Button onClick={()=> openAdd()}>Adicionar novo registro</Button>
         </div>
-        {showAdd ? <UserFormComponent operation={'register'} onClose={closeModal} /> : null }
+        {showAdd ? <UserFormComponent operation={operation} onClose={closeModal} /> : null }
       </div>
     </div>
     </Box>
