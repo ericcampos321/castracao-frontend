@@ -1,81 +1,87 @@
 .container-user-form {
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 99;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .container-user-form .modal-user-form {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    border-radius: 7px;
-    overflow-y: auto;
-    gap: 20px;
-    animation: animaModal 0.3s forwards;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 7px;
+  overflow-y: auto;
+  gap: 20px;
+  animation: animaModal 0.3s forwards;
 }
 
 .container-user-form .modal-user-form .title-user-form {
-    height: 100px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .container-user-form .modal-user-form #field-input-password {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-user-form .modal-user-form #field-input-password #eye {
-    position: absolute;
-    right: 20px;
-    color: rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    transition: all 0.3s ease;
+  position: absolute;
+  right: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .container-user-form .modal-user-form #field-input-password #eye:hover {
-    color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .container-user-form .modal-user-form .button-fields-user {
-    display: flex;
-    gap: 20px;
-    height: 85px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 85px;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-user-form .modal-user-form .button-fields-user .button-cancel {
-    background-color: white;
-    color: var(--default-primary-color);
+  background-color: white;
+  color: var(--default-primary-color);
+}
+
+.container-user-form .modal-user-form .button-fields-user .button-save {
+  background-color: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+  color: var(--default-primary-color);
 }
 
 @keyframes animaModal {
-    0% {
-        transform: translateY(-120%);
-    }
+  0% {
+    transform: translateY(-120%);
+  }
 
-    100% {
-        transform: translateY(1);
-    }
+  100% {
+    transform: translateY(1);
+  }
 }
 
 @media (max-width: 1200px) {
-    .container-user-form {
-        z-index: 95;
-    }
+  .container-user-form {
+    z-index: 95;
+  }
 }
