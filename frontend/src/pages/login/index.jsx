@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import img from "../../assets/images/logo.jpeg";
 import { setStorage } from '../../services/localStorage';
-
 import "./style.css";
-
 import api from "../../api/index"
 
 const Login = () => {
