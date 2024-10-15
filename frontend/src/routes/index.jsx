@@ -5,6 +5,8 @@ import Admin from "../pages/admin/index";
 import Usuario from "../pages/admin/usuario/index";
 import { PrivateRoutes } from '../routes/privateRoutes';
 
+
+
 export const Routers = () => {
   return (
     <BrowserRouter>
