@@ -1,0 +1,11 @@
+.alert-box{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: anima 0.3s forwards;
+  padding: 20px;
+  overflow-y: hidden;
+}

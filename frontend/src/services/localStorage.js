@@ -5,17 +5,22 @@ export const setStorage = (typeStorage, value) => {
                 window.localStorage.setItem('token', value); 
                 break;
             case 'id':
+
                 window.localStorage.setItem('id', value);  
+
                 break;
             case 'auth':
                 window.localStorage.setItem('auth', value); 
                 break;
             case 'permission':
                 window.localStorage.setItem('permission', value); 
+                break;  
+            default:
                 break;
         }
     }
-}
+};
+
 
 export const getStorage = (getValue) => {
     const storage = window.localStorage.getItem(getValue);

@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import api from "../../../api/index";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  Select, MenuItem,
-  TextField,
-} from "@mui/material";
-
+import {Button, FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 
 const UserFormComponent = (props) => {
@@ -17,7 +10,6 @@ const UserFormComponent = (props) => {
   const [password, setPassword] = useState("");
   const [permissions, setPermissions] = useState([]);
   const [name_permission, setNamePermission] = useState("");
-  const [statusPromise, setStatusPromise] = useState(true);
 
   useEffect(() => {
     const getPermission = async () => {

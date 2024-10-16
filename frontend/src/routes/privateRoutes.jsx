@@ -8,6 +8,7 @@ export const PrivateRoutes = ({ children }) => {
     return token && auth ? children : <Navigate to='/login' />;
 }
 
+
 export const OnlyAdminRoutes = ({ children }) => {
     return <Navigate to='/home' />;
 }
