@@ -1,16 +1,26 @@
-import React, { useState } from "react";
 import img from "../../assets/images/logo.jpeg";
+import React, { useState } from "react";
 import { setStorage } from '../../services/localStorage';
 import { Button, Typography, CircularProgress } from "@mui/material";
+import { ShowAlert } from "../../components/showAlertComponent";
 import "./style.css";
 import api from "../../api/index"
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [alert, setAlert] = useState(false);
   const [status, setStatus] = useState('');
   const [msg, setMsg] = useState('');
   const [ loading, setLoading ] = useState(false);
+
+  const getPassword = (password) => {
+    setPassword(password);
+}
+
+const getEmail = (email) => {
+    setEmail(email);
+}
 
   const login = async (e) => {
     e.preventDefault();
@@ -18,23 +28,37 @@ const Login = () => {
         email, password
     });
 
+
     if (response.data.status === 0) {
+      setAlert(true);
       setStatus('error');
       setMsg(response.data.msg);
+      timerError();
   } else if (response.data.status === 1) {
       setLoading(true);
+      setAlert(true);
       setStatus('success');
       setMsg(response.data.msg);
+      timerSuccess();
       setStorage('token', response.data.token);
       setStorage('id', response.data.idUser);
       setStorage('auth', response.data.auth);
   }
+}
 
-    if (response.status === 200) {
-      localStorage.setItem('token', response.data.token);
-      window.location.href = '/home';
-    }
-  };
+  const timerSuccess = () => {
+    setTimeout(() => {
+        setLoading(false);
+        setAlert(false);
+        window.location.href = '/home';
+    }, 3000)
+}
+
+const timerError = () => {
+    setTimeout(() => {
+        setAlert(false);
+    }, 3000)
+}
 
   return (
     <div className="background-login">
@@ -53,7 +77,7 @@ const Login = () => {
               className="input"
               type="text"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => getEmail(e.target.value)} variant="outlined"
             />
             <label class="label" for="input">
               Usúario
@@ -65,7 +89,7 @@ const Login = () => {
               class="input"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => getPassword(e.target.value)} variant="outlined"
             />
             <label class="label" for="input">
               Senha
@@ -76,6 +100,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+      {alert ? <ShowAlert status={status} msg={msg} /> : null}
     </div>
   );
 };
