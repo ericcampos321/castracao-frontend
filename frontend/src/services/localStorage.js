@@ -2,10 +2,12 @@ export const setStorage = (typeStorage, value) => {
     if (typeStorage) {  // Verifica se o parâmetro 'typeStorage' foi passado
         switch (typeStorage) {  // Escolhe qual tipo de dado armazenar no localStorage
             case 'token':
-                window.localStorage.setItem('token', value);  // Armazena o 'value' com a chave 'token'
+                window.localStorage.setItem('token', value); 
                 break;
             case 'id':
-                window.localStorage.setItem('id', value); 
+
+                window.localStorage.setItem('id', value);  
+
                 break;
             case 'auth':
                 window.localStorage.setItem('auth', value); 
