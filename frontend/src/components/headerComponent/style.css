@@ -61,7 +61,7 @@ div .app-bar {
   justify-content: left;
   text-align: center;
   display: flex;
-  padding: 10px 5px 5px 5px;;
+  padding: 10px 5px 5px 5px;
   width: 16vh;
   font-size: 17px;
   font-weight: 400;
@@ -76,7 +76,6 @@ div .app-bar {
 
 .submenu nav ul a {
   text-decoration: none;
-
 }
 
 .submenu ul li:hover {
@@ -96,22 +95,93 @@ div .app-bar {
   border-radius: 10px;
 }
 
+.open-menu-mobile {
+  display: flex;
+  position: fixed;
+  left: 10px;
+  top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 99;
+  background-color: rgba(151, 150, 150, 0.123);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 40px;
+  height: 30px;
+  border-radius: 7px;
+}
 
-@media screen and (max-width: 1500px) {
+.open-menu-mobile{
+  display: none;
+}
 
-  .submenu{
-    width: 100px;
-  
+.open-menu-mobile:hover {
+  background-color: rgba(121, 121, 121, 0.151);
+}
+
+@media screen and (max-width: 1550px) {
+  .open-menu-mobile{
+    display: flex;
   }
 
-  .text-menu{
+  .submenu {
     display: none;
+    transition: all 0.3s ease;
+  }
+
+  .submenu-mobile {
+    width: 45px;
+    top: 55px;
+    height: 100%;
+    position: fixed;
+    background-color: var(--default-primary-color);
+    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    animation: animaMenuMobile 0.5s ease;
+  }
+
+  .submenu-mobile ul li {
+    padding-left: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.3s ease;
+    padding: 7px;
+    border-radius: 3px;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   .icon-menu {
-    margin-left: 85px;
+    width: 30px;
     display: flex;
-    font-size: 30px;
+    justify-content: center;
+    position: relative;
+    top: 10px;
+    left: 10px;
   }
 
+  .icon-menu:hover {
+    background-color: #d6d6d634;
+    border-radius: 10px;
+  }
+
+  .text-menu {
+    display: none;
+  }
+}
+
+@keyframes animaMenuMobile {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(1);
+  }
 }
