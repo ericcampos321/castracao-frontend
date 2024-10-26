@@ -1,13 +1,15 @@
 .user-box {
+  margin-left: 20vw; /* O conteúdo começa logo após a barra lateral */
+  padding: 20px;
+  flex-grow: 1; /* O conteúdo cresce para preencher o espaço restante */
+  transition: margin-left 0.3s;
   position: absolute;
-  top: 89px;
+  top: 70px;
   right: 0;
-  width: 84%;
+  width: 88%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-right: 30px;
-  overflow-x: hidden;
+  gap: 15px;
 }
 
 .box-link {
@@ -47,4 +49,27 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+Button.button-add {
+  width: 300px;
+  background-color: #751b1b;
+  color: var(--white-color);
+}
+
+.button-add:hover {
+  background-color: var(--white-color);
+  color: var(--default-primary-color);
+}
+
+@media screen and (max-width: 1550px) {
+  .user-box {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }

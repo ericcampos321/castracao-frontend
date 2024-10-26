@@ -1,5 +1,5 @@
 div .app-bar {
-  background-color: var(--white-color);
+  background-color: #FFFFFF;
   z-index: 99;
   position: fixed;
 }
@@ -31,22 +31,23 @@ div .app-bar {
 
 .submenu {
   background-color: var(--default-primary-color);
-  width: 250px;
   top: 64px;
+  left: 0;
+  margin: 0;
   height: 100%;
   position: fixed;
   box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.253);
   display: flex;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: left;
+  overflow-y: auto;
   transition: width 0.3s ease;
 }
 
 .submenu ul {
-  width: 200px;
+  width: 12vw;
   display: flex;
   justify-content: flex-start;
-  margin-left: 0px;
+  margin: 0px;
   padding-top: 4px;
   padding-left: 0;
   flex-direction: column;
@@ -58,24 +59,28 @@ div .app-bar {
 .submenu ul li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--white-color);
-  justify-content: left;
-  text-align: center;
+  justify-content: stretch;
+  align-items: flex-start;
+  text-align: left;
   display: flex;
-  padding: 10px 5px 5px 5px;
-  width: 16vh;
-  font-size: 17px;
+  padding: 10px 0px 0px 0px;
+  font-size: 100%;
+  margin: 0px 0px 0px 5px;
+  width: 95%;
   font-weight: 400;
   list-style: none;
   text-decoration: none;
 }
 
 .icon-menu {
+  margin: 0px 10px 0px 20px;
   margin-right: 30px;
   font-size: 24px;
 }
 
 .submenu nav ul a {
   text-decoration: none;
+  width: 100%;
 }
 
 .submenu ul li:hover {
@@ -83,6 +88,7 @@ div .app-bar {
   background-color: #d6d6d634;
   transition: all 0.1s ease;
   border-radius: 2px;
+  transition: all 0.1s ease;
 }
 
 .submenu ul li:active {
@@ -114,7 +120,7 @@ div .app-bar {
   border-radius: 7px;
 }
 
-.open-menu-mobile{
+.open-menu-mobile {
   display: none;
 }
 
@@ -123,7 +129,7 @@ div .app-bar {
 }
 
 @media screen and (max-width: 1550px) {
-  .open-menu-mobile{
+  .open-menu-mobile {
     display: flex;
   }
 
@@ -134,7 +140,7 @@ div .app-bar {
 
   .submenu-mobile {
     width: 45px;
-    top: 55px;
+    top: 4vh;
     height: 100%;
     position: fixed;
     background-color: var(--default-primary-color);
@@ -149,7 +155,6 @@ div .app-bar {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 7px;
     transition: all 0.3s ease;
     padding: 7px;
     border-radius: 3px;
@@ -163,8 +168,9 @@ div .app-bar {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 10px;
-    left: 10px;
+    padding: 8px 5px 8px 5px;
+    top: 24px;
+    left: 5px;
   }
 
   .icon-menu:hover {

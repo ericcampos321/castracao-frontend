@@ -10,6 +10,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import Avatar from "@mui/material/Avatar";
 
 
 
@@ -31,6 +32,7 @@ const Header = () => {
           <div className="box-logo">
             <img src={img} alt="logo" />
           </div>
+          <Avatar src="/broken-image.jpg" style={{ width: 40, height: 40, cursor: "pointer" }}/>
         </Toolbar>
       </AppBar>
       <div className="submenu">

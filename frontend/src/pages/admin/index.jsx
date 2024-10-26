@@ -7,7 +7,7 @@ import './style.css'
 
 
 
-const Admin = () => {
+const Admin = ({ children }) => {
   return (
 
     <Box>
@@ -36,6 +36,7 @@ const Admin = () => {
         </div>
       </div>
     </div >
+
     </Box>
     
   )
