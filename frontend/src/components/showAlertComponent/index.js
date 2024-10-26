@@ -6,7 +6,7 @@ export const ShowAlert = ({ status, msg }) => {
   return (
     <div className="alert-box">
       {status === 'success' ? (
-        
+
         <Alert variant="filled" severity="success">
           {msg}
           </Alert>

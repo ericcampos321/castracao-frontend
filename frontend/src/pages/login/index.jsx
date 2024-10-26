@@ -27,10 +27,10 @@ const getEmail = (email) => {
     const response = await api.post('/users/login', {
         email, password
     });
-
-
+    
     if (response.data.status === 0) {
       setAlert(true);
+      setLoading(true);
       setStatus('error');
       setMsg(response.data.msg);
       timerError();
@@ -56,6 +56,7 @@ const getEmail = (email) => {
 
 const timerError = () => {
     setTimeout(() => {
+        setLoading(false);
         setAlert(false);
     }, 3000)
 }
@@ -72,28 +73,12 @@ const timerError = () => {
         </div>
         <form onSubmit= {(e) => login(e)}>
           <div class="input-field">
-            <input
-              required
-              className="input"
-              type="text"
-              value={email}
-              onChange={(e) => getEmail(e.target.value)} variant="outlined"
-            />
-            <label class="label" for="input">
-              Usúario
-            </label>
+            <input required className="input" type="text" value={email} onChange={(e) => getEmail(e.target.value)} variant="outlined" />
+            <label class="label" for="input"> Usúario </label>
           </div>
           <div class="input-field">
-            <input
-              required
-              class="input"
-              type="password"
-              value={password}
-              onChange={(e) => getPassword(e.target.value)} variant="outlined"
-            />
-            <label class="label" for="input">
-              Senha
-            </label>
+            <input required class="input" type="password" value={password} onChange={(e) => getPassword(e.target.value)} variant="outlined" />
+            <label class="label" for="input"> Senha </label>
           </div>
           <div className="box-submit-login">
             <Button type='submit' class="submit-btn" sx={{ width: "200px" }} >{loading ? <CircularProgress color='secondary' size={28} /> : 'Entrar'}</Button>
