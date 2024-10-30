@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../../../components/headerComponent"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import TextField from '@mui/material/TextField';
 import { TableUsersComponent } from '../../../components/tableComponents/tableUsersComponent';
 import { Typography, Button, Box } from "@mui/material"
+import SearchIcon from '@mui/icons-material/Search';
 import api from '../../../api/index'
 import { Link } from "react-router-dom"
 import UserFormComponent from '../../../components/registerFormComponent/userFormComponent/index';
@@ -82,6 +84,14 @@ const Usuarios = () => {
         </div>
         <div className="box-add">
           <Button className='button-add' onClick={()=> openAdd()}>Adicionar novo registro</Button>
+        </div>
+
+        <div className='box-filter' >
+          <div className='filter-box'>
+            <TextField className='filter' id="outlined-basic" label="Nome" variant="outlined" onChange={(e) => setFilterUser({ ...filterUser, name: e.target.value })} size='small' />
+            <TextField className='filter' id="outlined-basic" label="Email" variant="outlined" onChange={(e) => setFilterUser({ ...filterUser, email: e.target.value })} size='small'/>
+            <Button onClick={() => getUsers(filterUser, currentPage)}>Filtrar <SearchIcon /></Button>
+          </div>
         </div>
         {showAdd ? <UserFormComponent operation={operation} onClose={closeModal} /> : null }
 

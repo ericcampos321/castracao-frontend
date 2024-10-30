@@ -69,7 +69,7 @@ const timerError = () => {
         </div>
         <div className="box-title-acessar">
           <Typography className="title-acessar" component={'span'} fontSize={25} color="#751b1b">Acesse sua conta</Typography><br/>
-          <Typography component={'span'} fontSize={15} color="#1009" >Informe seu usuário e senha para entrar no sistema.</Typography>
+          <Typography component={'span'} fontSize={15} color="#1009" fontWeight={500} >Informe seu usuário e senha para entrar no sistema.</Typography>
         </div>
         <form onSubmit= {(e) => login(e)}>
           <div class="input-field">
@@ -81,9 +81,12 @@ const timerError = () => {
             <label class="label" for="input"> Senha </label>
           </div>
           <div className="box-submit-login">
-            <Button type='submit' class="submit-btn" sx={{ width: "200px" }} >{loading ? <CircularProgress color='secondary' size={28} /> : 'Entrar'}</Button>
+            <Button type='submit' class="submit-btn" sx={{ width: "200px" }} >{loading ? <CircularProgress color='inherit' size={28} /> : 'Entrar'}</Button>
           </div>
         </form>
+        <div className="box-support">
+          <Typography fontSize={13}>Suporte: +55 14 99127-0311 | oneclickengenhariadesoftware@gmail.com</Typography>
+        </div>
       </div>
       {alert ? <ShowAlert status={status} msg={msg} /> : null}
     </div>

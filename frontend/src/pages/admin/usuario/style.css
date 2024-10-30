@@ -51,10 +51,23 @@
   gap: 15px;
 }
 
-Button.button-add {
-  width: 300px;
-  background-color: #751b1b;
-  color: var(--white-color);
+.box-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.box-filter .filter-box {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--default-primary-color);
+  background-color: white;
 }
 
 .button-add:hover {
