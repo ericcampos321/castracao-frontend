@@ -18,8 +18,10 @@ const Usuarios = () => {
   const [operation, setOperation] = useState('');
   const [users, setUsers] = useState([]);
   const [columns, setColumns] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPagination] = useState(0);
   const [totalUsers, setTotalUsers] = useState(0);
+  const [nameFilter, setNameFilter] = useState('');
+  const [emailFilter, setEmailFilter] = useState('');
   const [ msg, setMsg ] = useState('');
   const [filterUser, setFilterUser] = useState(Object);
   const [totalPageLastClick, setTotalPageLastClick] = useState(0);
@@ -59,6 +61,28 @@ const Usuarios = () => {
     }
   }
 
+  const applyFilter = async (e) => {
+    if (e) e.preventDefault();
+    setFilterUser({
+      name: nameFilter,
+      email: emailFilter
+    });
+  };
+
+  const nextPagination = async () => {
+    setTotalPageLastClick(totalPageLastClick + 1);
+    setCurrentPagination(currentPage + 5);
+    await getUsers(filterUser, currentPage);
+    setDisableButtonBack(false);
+}
+
+const backPagination = async () => {
+    setTotalPageLastClick(totalPageLastClick - 1);
+    setCurrentPagination(currentPage - 5);
+    await getUsers(filterUser, currentPage);
+    setDisableButtonNext(false)
+}
+
   const openAdd = () => {
     setShowAdd(true);
     setOperation('register');  
@@ -88,9 +112,9 @@ const Usuarios = () => {
 
         <div className='box-filter' >
           <div className='filter-box'>
-            <TextField className='filter' id="outlined-basic" label="Nome" variant="outlined" onChange={(e) => setFilterUser({ ...filterUser, name: e.target.value })} size='small' />
-            <TextField className='filter' id="outlined-basic" label="Email" variant="outlined" onChange={(e) => setFilterUser({ ...filterUser, email: e.target.value })} size='small'/>
-            <Button onClick={() => getUsers(filterUser, currentPage)}>Filtrar <SearchIcon /></Button>
+            <TextField value={nameFilter} onChange={(e) => setNameFilter(e.target.value)} className='filter' label="Nome" size='small' />
+            <TextField value={emailFilter} onChange={(e) => setEmailFilter(e.target.value)} className='filter' id="outlined-basic" label="Email" size='small'/>
+            <Button onClick={() => applyFilter()}>Filtrar <SearchIcon /></Button>
           </div>
         </div>
         {showAdd ? <UserFormComponent operation={operation} onClose={closeModal} /> : null }
@@ -98,7 +122,19 @@ const Usuarios = () => {
 
         {users.length >= 1 ? ( 
 
-    <TableUsersComponent data={users} columns={columns} />
+         <>
+           <TableUsersComponent data={users} columns={columns} />
+              <div className="table-users-pagination">
+                <div className="table-users-quantity">
+               <Typography component={'span'} fontFamily={'sans-serif'}>Qtd: {totalUsers}</Typography>
+              </div>
+           <div className="table-users-button">
+             <button className={disableButtonBack ? 'button-pagination-user-disabled' : 'button-pagination-user'} disabled={disableButtonBack} onClick={() => backPagination()} ></button>
+             <button className={disableButtonNext ? 'button-pagination-user-disabled' : 'button-pagination-user'} disabled={disableButtonNext} onClick={() => nextPagination()}></button>
+             </div>
+              </div>
+          </>
+    
     ) : (
       <Typography>{msg}</Typography>
     )}
