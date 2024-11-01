@@ -9,14 +9,14 @@ export const ShowAlert = ({ status, msg }) => {
 
         <Alert variant="filled" severity="success">
           {msg}
-          </Alert>
-        ) : null}
+        </Alert>
+      ) : null}
 
       {status === 'error' ? (
         <Alert variant="filled" severity="error">
           {msg}
-          </Alert>
-        ) : null}
+        </Alert>
+      ) : null}
     </div>
   )
 }

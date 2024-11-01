@@ -12,29 +12,29 @@ const Login = () => {
   const [alert, setAlert] = useState(false);
   const [status, setStatus] = useState('');
   const [msg, setMsg] = useState('');
-  const [ loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getPassword = (password) => {
     setPassword(password);
-}
+  }
 
-const getEmail = (email) => {
+  const getEmail = (email) => {
     setEmail(email);
-}
+  }
 
   const login = async (e) => {
     e.preventDefault();
     const response = await api.post('/users/login', {
-        email, password
+      email, password
     });
-    
+
     if (response.data.status === 0) {
       setAlert(true);
       setLoading(true);
       setStatus('error');
       setMsg(response.data.msg);
       timerError();
-  } else if (response.data.status === 1) {
+    } else if (response.data.status === 1) {
       setLoading(true);
       setAlert(true);
       setStatus('success');
@@ -43,23 +43,23 @@ const getEmail = (email) => {
       setStorage('token', response.data.token);
       setStorage('id', response.data.idUser);
       setStorage('auth', response.data.auth);
+    }
   }
-}
 
   const timerSuccess = () => {
     setTimeout(() => {
-        setLoading(false);
-        setAlert(false);
-        window.location.href = '/home';
+      setLoading(false);
+      setAlert(false);
+      window.location.href = '/home';
     }, 3000)
-}
+  }
 
-const timerError = () => {
+  const timerError = () => {
     setTimeout(() => {
-        setLoading(false);
-        setAlert(false);
+      setLoading(false);
+      setAlert(false);
     }, 3000)
-}
+  }
 
   return (
     <div className="background-login">
@@ -68,10 +68,10 @@ const timerError = () => {
           <img src={img} alt="logo" />
         </div>
         <div className="box-title-acessar">
-          <Typography className="title-acessar" component={'span'} fontSize={25} color="#751b1b">Acesse sua conta</Typography><br/>
+          <Typography className="title-acessar" component={'span'} fontSize={25} color="#751b1b">Acesse sua conta</Typography><br />
           <Typography component={'span'} fontSize={15} color="#1009" fontWeight={500} >Informe seu usuário e senha para entrar no sistema.</Typography>
         </div>
-        <form onSubmit= {(e) => login(e)}>
+        <form onSubmit={(e) => login(e)}>
           <div class="input-field">
             <input required className="input" type="text" value={email} onChange={(e) => getEmail(e.target.value)} variant="outlined" />
             <label class="label" for="input"> Usúario </label>

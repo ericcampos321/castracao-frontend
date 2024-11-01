@@ -75,6 +75,25 @@
   color: var(--default-primary-color);
 }
 
+.table-users-quantity{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loading{
+  padding: 20px;
+  flex-grow: 1; /* O conteúdo cresce para preencher o espaço restante */
+  transition: margin-left 0.3s;
+  position: absolute;
+  top: 500px;
+  left: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 @media screen and (max-width: 1550px) {
   .user-box {
     position: absolute;

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import api from "../../../api/index";
+import CircularProgress from "@mui/material";
 import {Button, FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material";
 import { Typography } from "@mui/material";
+import { set } from "mongoose";
 
 const UserFormComponent = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [permissions, setPermissions] = useState([]);
   const [name_permission, setNamePermission] = useState("");
 
@@ -50,6 +53,18 @@ const UserFormComponent = (props) => {
           permissions: name_permission,
         });
       }
+
+      if(result.data){
+        switch(result.data.status){
+          case 1:
+            setLoading(true);
+            
+            break;
+          case 0:
+            setLoading(true);
+        }
+      }
+      
     } catch (err) {
       console.log(err);
     }
@@ -106,7 +121,7 @@ const UserFormComponent = (props) => {
 
           <div className="button-fields-user">
             <Button onClick={props.onClose} className="button-cancel" sx={{ width: "100px" }} variant="contained" > Cancelar </Button>
-            <Button type="submit" className="button-save" sx={{ width: "100px" }} > Salvar </Button>
+            <Button type="submit" className="button-save" sx={{ width: "100px" }} >{ loading ? <CircularProgress color="inherit" size={20} /> : "Salvar"} </Button>
           </div>
 
         ) : (

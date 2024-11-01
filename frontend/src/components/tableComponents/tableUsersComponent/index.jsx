@@ -20,19 +20,19 @@ export const TableUsersComponent = ({ data, columns }) => {
               <TableCell style={{ color: '#751b1b', fontWeight: 'bold', textTransform: 'uppercase' }} align="center" key={column}>{column}</TableCell>
             ))}
           </TableRow>
-        </TableHead> 
+        </TableHead>
         <TableBody>
           {data.map((row) => (
             <TableRow key={row._id} sx={{ border: 0 }} hover>
               <TableCell>
-                <div id="buttons" style={{ display: "flex"}}>
-                  <button style={{ marginRight: "10px", cursor: "pointer", color: "blue", border: "none", background: "none"}}><EditIcon  style={{ cursor: 'pointer', fontSize: 17 }} /></button>
-                  <button style={{ marginRight: "10px", cursor: "pointer", color: "red", border: "none", background: "none" }}><DeleteIcon  style={{ cursor: 'pointer', fontSize: 17 }} /></button>
-                  <button style={{ marginRight: "10px", cursor: "pointer", color: "orange", border: "none", background: "none"}}><RemoveRedEyeIcon  style={{ cursor: 'pointer', fontSize: 17 }} /></button>
+                <div id="buttons" style={{ display: "flex" }}>
+                  <button style={{ marginRight: "10px", cursor: "pointer", color: "blue", border: "none", background: "none" }}><EditIcon style={{ cursor: 'pointer', fontSize: 17 }} /></button>
+                  <button style={{ marginRight: "10px", cursor: "pointer", color: "red", border: "none", background: "none" }}><DeleteIcon style={{ cursor: 'pointer', fontSize: 17 }} /></button>
+                  <button style={{ marginRight: "10px", cursor: "pointer", color: "orange", border: "none", background: "none" }}><RemoveRedEyeIcon style={{ cursor: 'pointer', fontSize: 17 }} /></button>
                 </div>
               </TableCell>
               <TableCell align="center" sx={{ width: "25%" }}>{row.idUser}</TableCell>
-              <TableCell  align="center" sx={{ width: "25%" }}>{row.name}</TableCell>
+              <TableCell align="center" sx={{ width: "25%" }}>{row.name}</TableCell>
               <TableCell align="center" sx={{ width: "25%" }}>{row.email}</TableCell>
               <TableCell align="center" sx={{ width: "25%" }}>{row.permissions?.name_permission || "Permissão não encontrada"}</TableCell>
             </TableRow>
