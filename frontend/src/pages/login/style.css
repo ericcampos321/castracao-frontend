@@ -1,4 +1,5 @@
 .background-login {
+  background-color: #e4e4e7;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -11,9 +12,9 @@
 .form-control {
   margin: 20px;
   background-color: #ffffff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-  width: 500px;
-  height: 600px;
+  box-shadow: 0 5px 10px rgba(128, 128, 128, 0.6);
+  width: 550px;
+  height: 690px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -41,7 +42,7 @@
   justify-content: center;
 }
 
-.box-title-acessar .title-acessar{
+.box-title-acessar .title-acessar {
   font-weight: 600;
 }
 
@@ -65,7 +66,7 @@
   margin-top: 15px;
   width: 100%;
   outline: none;
-  border-radius: 8px;
+  border-radius: 5px;
   height: 45px;
   border: 1.5px solid rgba(163, 163, 163, 0.842);
   background: transparent;
@@ -79,7 +80,7 @@
   top: 25px;
   left: 15px;
   color: #ccc;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   pointer-events: none;
   z-index: 2;
 }
@@ -95,7 +96,7 @@
 }
 
 .submit-btn {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,11 +111,22 @@
   font-size: 15px;
   font-weight: 600;
   text-shadow: 0 1px #fff;
+  box-shadow: 0 5px 5px rgba(128, 128, 128, 0.158);
 }
 
 .submit-btn:hover {
   background-image: linear-gradient(to top, #fff 0%, #fff 80%, #d8d9db 100%);
   color: #751b1b;
+}
+
+.box-support {
+  color: #8f9092;
+  display: flex;
+  position: relative;
+  top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 @keyframes animaModal {

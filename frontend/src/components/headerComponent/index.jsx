@@ -21,7 +21,7 @@ const Header = () => {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
 
-  const toggleShowMenu= () => {
+  const toggleShowMenu = () => {
     showMenuMobile ? setShowMenuMobile(false) : setShowMenuMobile(true);
   };
 
@@ -32,7 +32,7 @@ const Header = () => {
           <div className="box-logo">
             <img src={img} alt="logo" />
           </div>
-          <Avatar src="/broken-image.jpg" style={{ width: 40, height: 40, cursor: "pointer" }}/>
+          <Avatar src="/broken-image.jpg" style={{ width: 40, height: 40, cursor: "pointer" }} />
         </Toolbar>
       </AppBar>
       <div className="submenu">
@@ -100,17 +100,17 @@ const Header = () => {
                   <span className="text-menu">Castrações</span>
                 </li>
                 <Link to="/admin">
-                  <li>  
+                  <li>
                     <span className="icon-menu">
-                      <PersonIcon fontSize="small" /> 
+                      <PersonIcon fontSize="small" />
                     </span>
                     <span className="text-menu">Admin</span>
                   </li>
-                </Link> 
+                </Link>
               </ul>
-            </nav>  
+            </nav>
           </div>
-        ) : null  
+        ) : null
       }
     </Box>
   );
