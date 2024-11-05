@@ -4,7 +4,7 @@ import LoadingComponentBanco from "../../../components/loadingComponentBanco";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TextField from "@mui/material/TextField";
 import { TableUsersComponent } from "../../../components/tableComponents/tableUsersComponent";
-import { Typography, Button, Box, MenuItem, CircularProgress } from "@mui/material";
+import { Typography, Button, Box, MenuItem} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import api from "../../../api/index";
 import { Link } from "react-router-dom";
@@ -189,13 +189,14 @@ const Usuarios = () => {
                   <div className="table-users-pagination">
                     <div className="table-users-quantity">
                       <Typography component={"span"} fontFamily={"sans-serif"}>
-                        Qtd: {totalUsers}
+                        Total: {totalUsers}
                       </Typography>
                       <TextField
                         sx={{ width: "100px" }}
                         select
                         size="small"
-                        defaultValue={limit}
+                        value={limit}
+                        onChange={(e) => setLimit(e.target.value)}
                         label="Qtd linhas"
                         color="primary"
                         id="outlined-basic"
