@@ -18,3 +18,15 @@
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 3px;
 }
+
+:root .button-add {
+  background-color: var(--default-primary-color);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+:root .button-add:hover {
+  background-color: white;
+  color: var(--default-primary-color);
+  opacity: 1;
+}

@@ -70,10 +70,6 @@
   background-color: white;
 }
 
-.button-add:hover {
-  background-color: var(--white-color);
-  color: var(--default-primary-color);
-}
 
 .table-users-quantity{
   display: flex;

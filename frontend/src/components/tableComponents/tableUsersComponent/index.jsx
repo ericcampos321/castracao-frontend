@@ -14,12 +14,11 @@ import UserFormComponent from "../../registerFormComponent/userFormComponent";
 
 
 export const TableUsersComponent = ({ data, columns }) => {
-  const [updateConfirm, setUpdateConfirm] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
-  const[idUser, setIdUser] = useState('');
+  const [idUser, setIdUser] = useState('');
 
-  const openDeleteConfirm = (e, id) => {
+  const openDeleteConfirm = (e, data ,id) => {
     e.preventDefault();
     setIdUser(id);
     setDeleteConfirm(true);
@@ -28,7 +27,7 @@ export const TableUsersComponent = ({ data, columns }) => {
   const openUpdate = (e, data, id) => {
     e.preventDefault();
     setIdUser(id);
-    !openModalUpdate ? setOpenModalUpdate(true) : setOpenModalUpdate(false);
+    setOpenModalUpdate(true);
   }
 
   const closeModalConfirmDelete = () => {
@@ -56,7 +55,7 @@ const closeModalUpdate = () => {
             <TableRow key={row._id} sx={{ border: 0 }} hover>
               <TableCell>
                 <div id="buttons" style={{ display: "flex" }}>
-                  <button style={{ marginRight: "10px", cursor: "pointer", color: "blue", border: "none", background: "none" }}><EditIcon style={{ cursor: 'pointer', fontSize: 17 }} onClick={(e) => openUpdate(e, row._id)}/></button>
+                  <button style={{ marginRight: "10px", cursor: "pointer", color: "blue", border: "none", background: "none" }}><EditIcon style={{ cursor: 'pointer', fontSize: 17 }} onClick={(e) => openUpdate(e, row, row._id)}/></button>
                   <button style={{ marginRight: "10px", cursor: "pointer", color: "red", border: "none", background: "none" }}><DeleteIcon style={{ cursor: 'pointer', fontSize: 17 }} onClick={(e) => openDeleteConfirm(e, row._id)} /></button>
                   <button style={{ marginRight: "10px", cursor: "pointer", color: "orange", border: "none", background: "none" }}><RemoveRedEyeIcon style={{ cursor: 'pointer', fontSize: 17 }} /></button>
                 </div>
