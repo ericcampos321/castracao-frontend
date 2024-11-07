@@ -4,11 +4,11 @@ import Header from '../../components/headerComponent';
 
 const Home = () => {
 
-  return (
-    <div>
-      <Header />
-    </div>
-  )
+   return (
+      <div>
+         <Header />
+      </div>
+   )
 }
 
 export default Home;
